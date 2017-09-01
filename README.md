@@ -20,26 +20,28 @@ be found at [https://hexdocs.pm/sntp](https://hexdocs.pm/sntp).
 ## Methods
 
 ### `time/1`
-Returns an NTP timestamp.
+```elixir
+SNTP.time() = {:ok, timestamp} || {:error, reason}
+```
 
-### `offset/1`
-Returns the offset.
+### `time!/1`
+```elixir
+SNTP.time() = timestamp || reason
+```
 
-### `now/1`
-Returns the system time.
+### `offset()`
+```elixir
+SNTP.offset() = %{expires: 1504379384471, offset: 12}`
+```
 
-### `now/2`
-Returns the system time with the offset.
+### `now()`
+```elixir
+SNTP.now() = 1504292984738
+```
 
 ## Acknowledgement
 
 This client was made thanks to [sntp](https://github.com/hueniverse/sntp) as an implementation in Elixir.
-
-## TODO
-
-- Tests
-- Implement periodically NTP request to serve a daily offset.
-- Documentation.
 
 ## LICENSE
 
