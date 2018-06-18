@@ -1,42 +1,38 @@
 # SNTP
 
-SNTP client [RFC4330](https://tools.ietf.org/html/rfc4330) for Elixir
+[![CircleCI](https://circleci.com/gh/Schultzer/sntp.svg?style=svg)](https://circleci.com/gh/Schultzer/sntp)
+
+SNTP v4 client [RFC4330](https://tools.ietf.org/html/rfc4330) for Elixir
+
+## Examples
+
+```elixir
+iex> SNTP.time()
+{:ok, %Timestamp{}}
+
+iex> SNTP.offset()
+{:ok, offset}
+
+iex> SNTP.now()
+1504292984738
+
+iex> SNTP.start()
+#PID<0.000.0>
+
+iex> SNTP.stop()
+:ok
+```
+
+## Documentation
+
+[hex documentation for sntp](https://hexdocs.pm/sntp)
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `sntp` to your list of dependencies in `mix.exs`:
-
 ```elixir
 def deps do
-  [{:sntp, "~> 0.1.0"}]
+  [{:sntp, "~> 0.2.0"}]
 end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/sntp](https://hexdocs.pm/sntp).
-
-## Methods
-
-### `time/1`
-```elixir
-SNTP.time() = {:ok, timestamp} || {:error, reason}
-```
-
-### `time!/1`
-```elixir
-SNTP.time() = timestamp || reason
-```
-
-### `offset()`
-```elixir
-SNTP.offset() = %{expires: 1504379384471, offset: 12}`
-```
-
-### `now()`
-```elixir
-SNTP.now() = 1504292984738
 ```
 
 ## Acknowledgement
@@ -53,4 +49,4 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED 'AS IS,' WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
