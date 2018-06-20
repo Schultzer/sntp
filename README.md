@@ -1,7 +1,5 @@
 # SNTP
 
-[![CircleCI](https://circleci.com/gh/Schultzer/sntp.svg?style=svg)](https://circleci.com/gh/Schultzer/sntp)
-
 SNTP v4 client [RFC4330](https://tools.ietf.org/html/rfc4330) for Elixir
 
 ## Examples

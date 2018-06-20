@@ -113,12 +113,12 @@ defmodule SNTP.Timestamp do
 
   defp resolve_reference(%__MODULE__{stratum: "secondary", reference_id: ref_id} = timestamp, true) do
     case :inet_res.gethostbyaddr(ref_id) do
-      {:error, reason} -> add_error(timestamp, :resolve_ref, {reason, "Failed to resovle reference"})
+      {:error, reason} -> add_error(timestamp, :resolve_ref, {reason, "Failed to resolve reference"})
 
       {:ok, host}      -> %{timestamp | reference_host: host}
     end
   end
-  defp resolve_reference(timestamp, true), do: add_error(timestamp, :resolve_ref, {:stratum_not_secondary, "Failed to resovle reference"})
+  defp resolve_reference(timestamp, true), do: add_error(timestamp, :resolve_ref, {:stratum_not_secondary, "Failed to resolve reference"})
   defp resolve_reference(timestamp, false), do: timestamp
 
   defp set_leap_indicator(0), do: "no-warning"
