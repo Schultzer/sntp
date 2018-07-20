@@ -1,3 +1,9 @@
+## SNTP v0.2.1 July 20, 2018
+
+### Bug Fixes
+
+* Fix bug that prevented the retriever to start via mix config.
+
 ## SNTP v0.2.0 June 17, 2018
 
 ### Bug Fixes
