@@ -21,7 +21,7 @@ defmodule SNTP.Mixfile do
 
   def application do
     [
-      env: [auto_start: false, receive_every: 24 * 60 * 60 * 1000],
+      env: [auto_start: false, retreive_every: 24 * 60 * 60 * 1000],
       extra_applications: [:logger],
       mod: {SNTP.Application, []}
     ]

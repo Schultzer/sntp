@@ -19,12 +19,12 @@ defmodule SNTP do
     case :ets.info(:sntp) do
       :undefined -> System.system_time(1000)
 
-      []         ->
+      _         ->
         [lastest: %{t: offset, is_valid?: is_valid?}] = :ets.lookup(:sntp, :lastest)
         case is_valid? do
           false -> System.system_time(1000)
 
-          true  -> offset + System.system_time(1000)
+          true  -> System.system_time(1000) + Kernel.round(offset)
         end
     end
   end
@@ -68,8 +68,8 @@ defmodule SNTP do
       iex> SNTP.start()
       #PID<0.000.0>
   """
-  @spec start(Enumerable.t()) :: pid()
-  defdelegate start(config), to: Retriever, as: :start_link
+  @spec start(Enumerable.t()) :: {:ok, pid()}
+  defdelegate start(config \\ []), to: Retriever, as: :start_link
 
   @doc """
   Stops the `SNTP.Retriever`

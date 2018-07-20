@@ -9,7 +9,7 @@ defmodule SNTP.Application do
 
   def children() do
     case Application.get_env(:sntp, :auto_start, false) do
-      true  -> [%{id: SNTP.Retreiver, start: {SNTP.Retreiver, :start_link, Application.get_all_env(:sntp)}}]
+      true  -> [%{id: SNTP.Retriever, start: {SNTP.Retriever, :start_link, [Application.get_all_env(:sntp)]}}]
 
       false -> []
      end

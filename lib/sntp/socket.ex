@@ -60,7 +60,7 @@ defmodule SNTP.Socket do
 
       :ok              ->
         receive do
-          {:udp, upd_port, ip, h_p, data} when upd_port == port and h_p == host_port ->
+          {:udp, ^port, ip, ^host_port, data} ->
             message = Kernel.struct(message, data: data, ip: ip, sent_at: ts, received_at: :erlang.system_time(1000))
             Kernel.struct(socket, message: message)
         after
