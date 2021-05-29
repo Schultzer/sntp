@@ -7,7 +7,7 @@ defmodule SNTP.Mixfile do
     [
       app: :sntp,
       version: @version,
-      elixir: "~> 1.5",
+      elixir: "~> 1.8",
       name: "SNTP",
       source_url: "https://github.com/schultzer/sntp",
       build_embedded: Mix.env == :prod,
@@ -15,7 +15,11 @@ defmodule SNTP.Mixfile do
       deps: deps(),
       description: description(),
       package: package(),
-      docs: docs()
+      docs: docs(),
+      elixirc_paths: elixirc_paths(Mix.env()),
+      dialyzer: [
+        plt_file: {:no_warn, "priv/plts/dialyzer.plt"}
+      ]
     ]
   end
 
@@ -29,7 +33,8 @@ defmodule SNTP.Mixfile do
 
   defp deps do
     [
-      {:ex_doc, "~> 0.14", only: :dev, runtime: false}
+      {:ex_doc, "~> 0.18", only: [:release, :dev]},
+      {:dialyxir, "~> 1.0", only: [:dev], runtime: false, optional: true}
     ]
   end
 
@@ -45,7 +50,7 @@ defmodule SNTP.Mixfile do
       maintainers: ["Benjamin Schultzer"],
       licenses: ~w(MIT),
       links: links(),
-      files: ~w(CHANGELOG* README* config lib mix.exs)
+      files: ~w(CHANGELOG* README* LICENSE* config lib mix.exs)
     ]
   end
 
@@ -64,4 +69,8 @@ defmodule SNTP.Mixfile do
       "Changelog" => "https://github.com/schultzer/sntp/blob/v#{@version}/CHANGELOG.md"
     }
   end
+
+  defp elixirc_paths(:test), do: ~w(lib mix test)
+  defp elixirc_paths(:dev), do: ~w(lib mix)
+  defp elixirc_paths(_), do: ~w(lib)
 end
