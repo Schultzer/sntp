@@ -1,3 +1,9 @@
+## SNTP v0.2.2 May 31, 2021
+
+### Bug Fixes
+
+* Fix bug that prevented usage on Elixir `v1.12`.
+
 ## SNTP v0.2.1 July 20, 2018
 
 ### Bug Fixes
