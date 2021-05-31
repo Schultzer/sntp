@@ -77,7 +77,7 @@ defmodule SNTP.Timestamp do
             sent_locally:        sent_at,
             received_locally:    received_at]
 
-    @struct
+    __MODULE__
     |> Kernel.struct(opts)
     |> validate()
     |> calc_roundtrip()

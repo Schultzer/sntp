@@ -34,7 +34,7 @@ defmodule SNTP.Socket do
   @spec new(Enumerable.t()) :: t()
   def new(opts \\ []) do
     opts = validate_opts(opts)
-    @struct
+    __MODULE__
     |> Kernel.struct(opts)
     |> open()
   end
