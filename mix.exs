@@ -33,8 +33,8 @@ defmodule SNTP.Mixfile do
 
   defp deps do
     [
-      {:ex_doc, "~> 0.18", only: [:release, :dev]},
-      {:dialyxir, "~> 1.0", only: [:dev], runtime: false, optional: true}
+      {:ex_doc, "~> 0.24", only: [:release, :dev]},
+      {:dialyxir, "~> 1.1", only: [:dev], runtime: false, optional: true}
     ]
   end
 
