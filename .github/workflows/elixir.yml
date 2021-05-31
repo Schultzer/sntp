@@ -40,6 +40,6 @@ jobs:
         mix deps.compile
         mix dialyzer --plt
     - name: Run test
-      run: mix test
+      run: mix test --exclude external:true
     - name: Run dialyzer
       run: mix dialyzer --no-check

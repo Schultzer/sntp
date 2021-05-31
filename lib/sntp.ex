@@ -66,7 +66,7 @@ defmodule SNTP do
   ## Examples
 
       iex> SNTP.start()
-      #PID<0.000.0>
+      {:ok, #PID<0.000.0>}
   """
   @spec start(Enumerable.t()) :: {:ok, pid()}
   defdelegate start(config \\ []), to: Retriever, as: :start_link
